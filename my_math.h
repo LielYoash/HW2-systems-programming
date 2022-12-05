@@ -7,4 +7,6 @@
 int scan();
 int pathExist();
 int shortestPath();
+void stop();
+
 #endif //HW2_MY_MATH_H

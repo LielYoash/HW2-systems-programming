@@ -1,5 +1,34 @@
-
 #include <stdio.h>
+//#include <malloc.h>
+//#include <stdlib.h>
+//
+//
+//int mat[10][10];
+//int V;
+//
+//
+//void stop(){
+//    exit(0);
+//}
+//
+//
+//void floydWarshall();
+//int min(int a, int b);
+//
+//int** scan() {
+//    int x;
+//    int** matrix = (int**)malloc(sizeof(int*)*10);
+//    printf("Please Enter the matrix weights: ");
+//    for (int i = 0; i < 10; ++i) {
+//        matrix[i] = (int*)malloc(sizeof(int)*10);
+//        for (int j = 0; j < 10; ++j) {
+//            scanf("%d ", &x);
+//            printf("%d\n", x);
+//            matrix[i][j] = x;
+//        }
+//    }
+//    return matrix;
+//}
 
 int mat[10][10];
 int V;
@@ -37,7 +66,7 @@ int shortestPath() {
     printf("Please enter your desired path length: ");
     scanf("%d, %d", &i, &j);
     if (mat[i][j] ==0) {
-        printf("%d", );
+        printf("%d", 1);
         return 1;
     } else {
         printf("-1");
@@ -73,3 +102,16 @@ int min(int a, int b) {
         return a;
 
 }
+/*int** foo() {
+    char x;
+    int** matrix = (int**)malloc(10*sizeof(int*));
+    printf("Please Enter the matrix weights: ");
+    for (int i = 0; i < 10; ++i) {
+        matrix[i] = (int*)malloc(10*sizeof(int));
+        for (int j = 0; j < 10; ++j) {
+            scanf("%c ", &x);
+            matrix[i][j] = x;
+        }
+    }
+    return matrix;
+}*/
