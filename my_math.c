@@ -8,24 +8,27 @@ void floydWarshall();
 
 int min(int a, int b);
 
-int scan() {
-    int x, y;
+void scan() {
+    int x;
     printf("Please Enter the matrix sizes: ");
-    scanf("%d, %d\n", &x, &y);
-    int mat[x][y];
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+            scanf("%d ", &x);
+            mat[i][j] = x;
+        }
+    }
+    floydWarshall();
 }
 
-int pathExist() {
+void pathExist() {
     int i, j;
     printf("Please enter your desired path length: ");
-    scanf("%d, %d", &i, &j);
-    int dist[i][j];
-    if (floydWarshall(dist[i][j])) {
-        printf("true");
-        return 1;
+    scanf("%d %d ", &i, &j);
+
+    if (mat[i][j] == 0) {
+        printf("false\n");
     } else {
-        printf("false");
-        return 0;
+        printf("true\n");
     }
 }
 
@@ -33,9 +36,8 @@ int shortestPath() {
     int i, j;
     printf("Please enter your desired path length: ");
     scanf("%d, %d", &i, &j);
-    int dist[i][j];
-    if (floydWarshall()) {
-        printf("%d", dist[i][j]);
+    if (mat[i][j] ==0) {
+        printf("%d", );
         return 1;
     } else {
         printf("-1");
