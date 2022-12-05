@@ -1,15 +1,13 @@
 #include <stdio.h>
 //#include <malloc.h>
-//#include <stdlib.h>
+#include <stdlib.h>
 //
 //
 //int mat[10][10];
 //int V;
 //
 //
-//void stop(){
-//    exit(0);
-//}
+//
 //
 //
 //void floydWarshall();
@@ -29,7 +27,9 @@
 //    }
 //    return matrix;
 //}
-
+void stop(){
+    exit(0);
+}
 int mat[10][10];
 int V;
 
@@ -61,16 +61,14 @@ void pathExist() {
     }
 }
 
-int shortestPath() {
+void shortestPath() {
     int i, j;
     printf("Please enter your desired path length: ");
     scanf("%d, %d", &i, &j);
     if (mat[i][j] ==0) {
-        printf("%d", 1);
-        return 1;
+        printf("-1\n");
     } else {
-        printf("-1");
-        return 0;
+        printf("%d\n", mat[i][j]);
     }
 
 
