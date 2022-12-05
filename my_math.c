@@ -6,6 +6,7 @@ int V;
 
 void floydWarshall();
 
+int min(int a, int b);
 
 int scan() {
     int x, y;
@@ -48,11 +49,25 @@ void floydWarshall() {
     for (int k = 0; k < 10; k++) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (mat[i][k] + mat[k][j] < mat[i][j])
-                    mat[i][j] = mat[i][k] + mat[k][j];
+                if (i == j)
+                    mat[i][i] = 0;
+                else if (i == k || j == k)
+                    mat[i][j] = mat[i][j];
+                else {
+                    int matSum = mat[i][k] + mat[k][j];
+                    if (mat[i][k] == 0 || mat[k][j] == 0)
+                        matSum = 0;
+                    mat[i][j] = min(mat[i][j], matSum);
+                }
             }
         }
     }
 }
+
+int min(int a, int b) {
+    if (a > b)
+        return b;
+    else
+        return a;
 
 }
