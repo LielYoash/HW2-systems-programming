@@ -8,14 +8,19 @@ int main() {
 
     while (1) {
         printf("Please choose a function:\n A - to enter weights\n B - check if there is a path between 2 nodes\n C - find shortest path\n D - stop running current function\n");
-        scanf("%c", &choosen_fun);
+        scanf(" %c", &choosen_fun);
 
         switch (choosen_fun) {
             case 'A':
                 scan();
                 break;
             case 'B':
-                pathExist();
+                if(pathExist()==1){
+                    printf("True\n");
+                }
+                else{
+                    printf("False\n");
+                }
                 break;
             case 'C':
                 shortestPath();
