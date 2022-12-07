@@ -35,6 +35,7 @@
 int mat[10][10];
 
 void floydWarshall();
+int printArr();
 
 int min(int a, int b);
 
@@ -46,6 +47,7 @@ void scan() {
             scanf(" %d", &x);
             mat[i][j] = x;
         }
+       printArr();
     }
     floydWarshall();
 }
@@ -105,7 +107,15 @@ void stop(){
     exit(0);
 }
 
-
+int printArr(){
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d\t", mat[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
 /*int** foo() {
     char x;
     int** matrix = (int**)malloc(10*sizeof(int*));
