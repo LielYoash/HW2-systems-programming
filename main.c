@@ -24,7 +24,7 @@ int main() {
                 stop();
                 break;
             default:
-                printf("unvalid input. try again");
+                printf("invalid input. try again");
         }
 
     }

@@ -8,5 +8,5 @@ int scan();
 int pathExist();
 int shortestPath();
 void stop();
-
+#include "stdio.h"
 #endif //HW2_MY_MATH_H
