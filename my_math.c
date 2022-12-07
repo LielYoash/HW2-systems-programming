@@ -1,10 +1,11 @@
 #include <stdio.h>
 //#include <malloc.h>
 #include <stdlib.h>
+
 //
 //
 //int mat[10][10];
-//int V;
+#define V 10
 //
 //
 //
@@ -27,11 +28,11 @@
 //    }
 //    return matrix;
 //}
-void stop(){
-    exit(0);
-}
+
+
+
+
 int mat[10][10];
-int V;
 
 void floydWarshall();
 
@@ -42,22 +43,21 @@ void scan() {
     printf("Please Enter the matrix sizes: ");
     for (int i = 0; i < 10; ++i) {
         for (int j = 0; j < 10; ++j) {
-            scanf("%d ", &x);
+            scanf(" %d", &x);
             mat[i][j] = x;
         }
     }
     floydWarshall();
 }
 
-void pathExist() {
+int pathExist() {
     int i, j;
     printf("Please enter your desired path length: ");
-    scanf("%d %d ", &i, &j);
-
+    scanf("%d %d", &i, &j);
     if (mat[i][j] == 0) {
-        printf("false\n");
+        return 0;
     } else {
-        printf("true\n");
+        return 1;
     }
 }
 
@@ -100,6 +100,12 @@ int min(int a, int b) {
         return a;
 
 }
+
+void stop(){
+    exit(0);
+}
+
+
 /*int** foo() {
     char x;
     int** matrix = (int**)malloc(10*sizeof(int*));
