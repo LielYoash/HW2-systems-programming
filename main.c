@@ -4,14 +4,14 @@
 
 int main() {
 
-    char choosen_fun;
+    char chosen_fun;
 
     int flag = 1;
 
     while (flag) {
-        scanf("%c", &choosen_fun);
+        scanf("%c", &chosen_fun);
 
-        switch (choosen_fun) {
+        switch (chosen_fun) {
             case 'A':
                 scan();
                 break;
