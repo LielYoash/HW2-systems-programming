@@ -1,16 +1,11 @@
 #include <stdio.h>
-//#include <malloc.h>
-#include <stdlib.h>
+
+
+void floydWarshall();
+int min(int a, int b);
 
 int mat[10][10];
 
-void distance();
-
-void floydWarshall();
-
-int printArr();
-
-int min(int a, int b);
 
 void scan() {
     int x;
@@ -41,8 +36,6 @@ void shortestPath() {
     } else {
         printf("%d\n", mat[i][j]);
     }
-
-
 }
 
 void floydWarshall() {
@@ -73,9 +66,5 @@ int min(int a, int b) {
         return b;
     else
         return a;
-
 }
 
-void stop() {
-    exit(0);
-}
