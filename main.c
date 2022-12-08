@@ -6,13 +6,17 @@ int main() {
 
     char choosen_fun;
 
-    while (1) {
-        printf("Please choose a function:\n A - to enter weights\n B - check if there is a path between 2 nodes\n C - find shortest path\n D - stop running current function\n");
-        scanf(" %c", &choosen_fun);
+    printf("MENU:\nA - to enter weights\n B - check if there is a path between 2 nodes\n C - find shortest path\n D - stop running current function\n");
+    int flag = 1;
+
+    while (flag) {
+        printf("\nPlease choose a function:");
+        scanf("%c", &choosen_fun);
 
         switch (choosen_fun) {
             case 'A':
                 scan();
+                printArr();
                 break;
             case 'B':
                 if(pathExist()==1){
@@ -26,10 +30,12 @@ int main() {
                 shortestPath();
                 break;
             case 'D':
-                stop();
+                printf("BYE!\n");
+                flag = 0;
                 break;
             default:
-                printf("invalid input. try again");
+                printf("Invalid Input\n");
+                break;
         }
 
     }
