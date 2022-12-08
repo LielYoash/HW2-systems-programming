@@ -2,59 +2,29 @@
 //#include <malloc.h>
 #include <stdlib.h>
 
-//
-//
-//int mat[10][10];
-#define V 10
-//
-//
-//
-//
-//
-//void floydWarshall();
-//int min(int a, int b);
-//
-//int** scan() {
-//    int x;
-//    int** matrix = (int**)malloc(sizeof(int*)*10);
-//    printf("Please Enter the matrix weights: ");
-//    for (int i = 0; i < 10; ++i) {
-//        matrix[i] = (int*)malloc(sizeof(int)*10);
-//        for (int j = 0; j < 10; ++j) {
-//            scanf("%d ", &x);
-//            printf("%d\n", x);
-//            matrix[i][j] = x;
-//        }
-//    }
-//    return matrix;
-//}
-
-
-
-
 int mat[10][10];
 
+void distance();
+
 void floydWarshall();
+
 int printArr();
 
 int min(int a, int b);
 
 void scan() {
     int x;
-    printf("Please Enter the matrix sizes: ");
     for (int i = 0; i < 10; ++i) {
         for (int j = 0; j < 10; ++j) {
             scanf(" %d", &x);
             mat[i][j] = x;
         }
-       printArr();
     }
     floydWarshall();
 }
 
 int pathExist() {
     int i, j;
-    printf("Please enter your desired path length: ");
     scanf("%d %d", &i, &j);
     if (mat[i][j] == 0) {
         return 0;
@@ -65,9 +35,8 @@ int pathExist() {
 
 void shortestPath() {
     int i, j;
-    printf("Please enter your desired path length: ");
-    scanf("%d, %d", &i, &j);
-    if (mat[i][j] ==0) {
+    scanf("%d %d", &i, &j);
+    if (mat[i][j] == 0 || i == j) {
         printf("-1\n");
     } else {
         printf("%d\n", mat[i][j]);
@@ -83,7 +52,7 @@ void floydWarshall() {
                 if (i == j)
                     mat[i][i] = 0;
                 else if (i == k || j == k)
-                    mat[i][j] = mat[i][j];
+                    continue;
                 else {
                     int matSum = mat[i][k] + mat[k][j];
                     if (mat[i][k] == 0 || mat[k][j] == 0)
@@ -96,6 +65,10 @@ void floydWarshall() {
 }
 
 int min(int a, int b) {
+    if (a == 0)
+        return b;
+    if (b == 0)
+        return a;
     if (a > b)
         return b;
     else
@@ -103,29 +76,6 @@ int min(int a, int b) {
 
 }
 
-void stop(){
+void stop() {
     exit(0);
 }
-
-int printArr(){
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            printf("%d\t", mat[i][j]);
-        }
-        printf("\n");
-    }
-    return 0;
-}
-/*int** foo() {
-    char x;
-    int** matrix = (int**)malloc(10*sizeof(int*));
-    printf("Please Enter the matrix weights: ");
-    for (int i = 0; i < 10; ++i) {
-        matrix[i] = (int*)malloc(10*sizeof(int));
-        for (int j = 0; j < 10; ++j) {
-            scanf("%c ", &x);
-            matrix[i][j] = x;
-        }
-    }
-    return matrix;
-}*/
